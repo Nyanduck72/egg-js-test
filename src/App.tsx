@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isJumpscared, setIsJumpscared] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Ensure the Egg library is loaded before using it
+    if (window.Egg) {
+      const egg = new window.Egg();
+      egg.addCode("f,u,n,c,i,o,n,a,l", () => {
+        setIsJumpscared(true);
+        const xd = new Audio("../public/Vine-boom-sound-effect.mp3");
+        xd.play();
+        const t = setTimeout(() => {
+          setIsJumpscared(false);
+        }, 1000); // Display the jumpscare for 1 second
+        return () => clearTimeout(t);
+      });
+      egg.listen();
+    }
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      {isJumpscared && (
+        <div className="jumpscare-container">
+          <div className="jumpscare-content">BOO!</div>
+        </div>
+      )}
+      <div className="">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur earum
+        iste, velit at non fuga corporis. Corporis reiciendis minima tenetur est
+        cumque! Beatae accusamus, adipisci numquam temporibus ullam
+        reprehenderit incidunt!
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt alias
+        aperiam optio unde eos et facilis quod numquam iure, porro minima earum
+        veniam, voluptas commodi architecto saepe tempore aut ullam.
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <hr />
+      <div className="">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur earum
+        iste, velit at non fuga corporis. Corporis reiciendis minima tenetur est
+        cumque! Beatae accusamus, adipisci numquam temporibus ullam
+        reprehenderit incidunt!
+      </div>
+      <div className="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt alias
+        aperiam optio unde eos et facilis quod numquam iure, porro minima earum
+        veniam, voluptas commodi architecto saepe tempore aut ullam.
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
