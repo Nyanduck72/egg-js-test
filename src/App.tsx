@@ -10,11 +10,9 @@ function App() {
       const egg = new window.Egg();
       egg.addCode("f,u,n,c,i,o,n,a,l", () => {
         setIsJumpscared(true);
-        const xd = new Audio("../public/Vine-boom-sound-effect.mp3");
-        xd.play();
         const t = setTimeout(() => {
           setIsJumpscared(false);
-        }, 1000); // Display the jumpscare for 1 second
+        }, 5000); // Display the jumpscare for 1 second
         return () => clearTimeout(t);
       });
       egg.listen();

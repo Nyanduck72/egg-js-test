@@ -19,15 +19,15 @@
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 1;
-  animation: fadeOut 1s forwards;
+  opacity: 0;
+  animation: fadeOut 5s forwards;
 }
 
 @keyframes fadeOut {
   0% {
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
