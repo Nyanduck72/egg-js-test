@@ -12,7 +12,7 @@ function App() {
         setIsJumpscared(true);
         const t = setTimeout(() => {
           setIsJumpscared(false);
-        }, 5000); // Display the jumpscare for 1 second
+        }, 10000); // Display the jumpscare for 1 second
         return () => clearTimeout(t);
       });
       egg.listen();
@@ -23,7 +23,7 @@ function App() {
     <div className="container">
       {isJumpscared && (
         <div className="jumpscare-container">
-          <div className="jumpscare-content">BOO!</div>
+          <div className="jumpscare-content"></div>
         </div>
       )}
       <div className="">
