@@ -12,7 +12,7 @@ function App() {
         setIsJumpscared(true);
         const t = setTimeout(() => {
           setIsJumpscared(false);
-        }, 10000); // Display the jumpscare for 1 second
+        }, 5000); // Display the jumpscare for 1 second
         return () => clearTimeout(t);
       });
       egg.listen();
